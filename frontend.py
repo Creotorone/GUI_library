@@ -44,21 +44,25 @@ def add_command():
 
 def get_selected_row(event):
 
-    global selected_tuple
-    index = list_box.curselection()[0]
-    selected_tuple = list_box.get(index)
+    try:
 
-    title_entry.delete(0, END)
-    title_entry.insert(END, selected_tuple[1])
+        global selected_tuple
+        index = list_box.curselection()[0]
+        selected_tuple = list_box.get(index)
 
-    auth_entry.delete(0, END)
-    auth_entry.insert(END, selected_tuple[2])
+        title_entry.delete(0, END)
+        title_entry.insert(END, selected_tuple[1])
 
-    year_entry.delete(0, END)
-    year_entry.insert(END, selected_tuple[3])
+        auth_entry.delete(0, END)
+        auth_entry.insert(END, selected_tuple[2])
 
-    isbn_entry.delete(0, END)
-    isbn_entry.insert(END, selected_tuple[4])
+        year_entry.delete(0, END)
+        year_entry.insert(END, selected_tuple[3])
+
+        isbn_entry.delete(0, END)
+        isbn_entry.insert(END, selected_tuple[4])
+    except IndexError:
+        pass
 
 
 def delete_command():
